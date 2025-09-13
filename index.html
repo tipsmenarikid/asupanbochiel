@@ -1,39 +1,99 @@
-<html>
-    <head>
-        <title>Asupan Bochiel</title>
-        <script src='//libtl.com/sdk.js' data-zone='9870613' data-sdk='show_9870613'></script>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monetag WebApp</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #4f46e5, #06b6d4);
+      color: #fff;
+      text-align: center;
+    }
+    header {
+      padding: 30px 15px;
+    }
+    header h1 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 15px;
+      opacity: 0.9;
+    }
+    .container {
+      background: #fff;
+      color: #333;
+      border-radius: 20px;
+      padding: 25px 15px;
+      margin: 20px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+    .container h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #111;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      margin: 15px 0;
+      background: #4f46e5;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #4338ca;
+    }
+    footer {
+      padding: 15px;
+      font-size: 13px;
+      opacity: 0.8;
+    }
+    .ad-box {
+      margin: 15px 0;
+      padding: 10px;
+      border: 2px dashed #ccc;
+      border-radius: 12px;
+      background: #f9fafb;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>💸 Monetag WebApp</h1>
+    <p>Monetisasi website atau aplikasi Telegram dengan iklan cerdas dari Monetag.</p>
+  </header>
 
-        <script>
+  <div class="container">
+    <h2>Kenapa Monetag?</h2>
+    <p>Dapatkan penghasilan ekstra dengan iklan Popunder, Push, dan format inovatif lainnya.</p>
 
-// In-App Interstitial
+    <div class="ad-box">
+      <!-- Monetag script contoh -->
+      <script src="https://alwingulla.com/88/tag.min.js" data-zone="YOUR_ZONE_ID"></script>
+      <p style="font-size:13px; color:#666;">[Slot Iklan Monetag]</p>
+    </div>
 
-show_9870613({
-  type: 'inApp',
-  inAppSettings: {
-    frequency: 2,
-    capping: 0.1,
-    interval: 30,
-    timeout: 5,
-    everyPage: false
-  }
-})
+    <a href="https://monetag.com/" target="_blank" class="btn">Daftar Sekarang</a>
+  </div>
 
-/*
-This value is decoded as follows:
-- show automatically 2 ads
-  within 0.1 hours (6 minutes)
-  with a 30-second interval between them
-  and a 5-second delay before the first one is shown.
-  The last digit, 0, means that the session will be saved when you navigate between pages.
-  If you set the last digit as 1, then at any transition between pages,
-  the session will be reset, and the ads will start again.
-*/
+  <footer>
+    &copy; 2025 Monetag WebApp Landing Page
+  </footer>
 
-
-        </script>
-
-    </head>
-    <body>
-      LOADING..
-    </body>
+  <script>
+    // Telegram WebApp API
+    if (window.Telegram && Telegram.WebApp) {
+      Telegram.WebApp.ready();
+      Telegram.WebApp.expand();
+    }
+  </script>
+</body>
 </html>
