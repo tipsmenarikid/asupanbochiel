@@ -3,96 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Monetag WebApp</title>
+  <title>Iklan Interstitial Monetag</title>
+
+  <!-- Script Interstitial Monetag -->
+  <script src="https://alwingulla.com/88/tag.min.js" data-zone="YOUR_ZONE_ID"></script>
+
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #4f46e5, #06b6d4);
-      color: #fff;
+      font-family: Arial, sans-serif;
+      background: #f9fafb;
       text-align: center;
     }
     header {
-      padding: 30px 15px;
-    }
-    header h1 {
-      font-size: 26px;
-      margin-bottom: 10px;
-    }
-    header p {
-      font-size: 15px;
-      opacity: 0.9;
-    }
-    .container {
-      background: #fff;
-      color: #333;
-      border-radius: 20px;
-      padding: 25px 15px;
-      margin: 20px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-    }
-    .container h2 {
-      font-size: 20px;
-      margin-bottom: 10px;
-      color: #111;
-    }
-    .btn {
-      display: inline-block;
-      padding: 12px 20px;
-      margin: 15px 0;
       background: #4f46e5;
       color: #fff;
+      padding: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .content {
+      padding: 20px;
+    }
+    button {
+      background: #06b6d4;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
       font-size: 16px;
-      border-radius: 12px;
-      text-decoration: none;
-      transition: 0.3s;
+      cursor: pointer;
     }
-    .btn:hover {
-      background: #4338ca;
-    }
-    footer {
-      padding: 15px;
-      font-size: 13px;
-      opacity: 0.8;
-    }
-    .ad-box {
-      margin: 15px 0;
-      padding: 10px;
-      border: 2px dashed #ccc;
-      border-radius: 12px;
-      background: #f9fafb;
+    button:hover {
+      background: #0891b2;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>💸 Monetag WebApp</h1>
-    <p>Monetisasi website atau aplikasi Telegram dengan iklan cerdas dari Monetag.</p>
+    Monetag Interstitial Ads
   </header>
 
-  <div class="container">
-    <h2>Kenapa Monetag?</h2>
-    <p>Dapatkan penghasilan ekstra dengan iklan Popunder, Push, dan format inovatif lainnya.</p>
-
-    <div class="ad-box">
-      <!-- Monetag script contoh -->
-      <script src="https://alwingulla.com/88/tag.min.js" data-zone="YOUR_ZONE_ID"></script>
-      <p style="font-size:13px; color:#666;">[Slot Iklan Monetag]</p>
-    </div>
-
-    <a href="https://monetag.com/" target="_blank" class="btn">Daftar Sekarang</a>
+  <div class="content">
+    <p>Tekan tombol di bawah untuk melihat iklan interstitial:</p>
+    <button onclick="showInterstitial()">Tampilkan Iklan</button>
   </div>
-
-  <footer>
-    &copy; 2025 Monetag WebApp Landing Page
-  </footer>
 
   <script>
     // Telegram WebApp API
     if (window.Telegram && Telegram.WebApp) {
       Telegram.WebApp.ready();
       Telegram.WebApp.expand();
+    }
+
+    // Trigger manual iklan interstitial
+    function showInterstitial() {
+      if (typeof window.Monetag !== "undefined" && window.Monetag.interstitial) {
+        window.Monetag.interstitial.show();
+      } else {
+        alert("Iklan belum siap dimuat.");
+      }
     }
   </script>
 </body>
