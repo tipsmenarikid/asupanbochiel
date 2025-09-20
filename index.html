@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Iklan Interstitial Monetag</title>
+  <title>Telegram Mini Apps</title>
 
-  <!-- Script Interstitial Monetag -->
   <script src='//libtl.com/sdk.js' data-zone='9870613' data-sdk='show_9870613'></script>
 
   <style>
@@ -25,50 +24,66 @@
     }
     .content {
       padding: 20px;
+      display: none;
     }
-    button {
-      background: #06b6d4;
-      color: #fff;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
+    .loader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #f9fafb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 9999;
     }
-    button:hover {
-      background: #0891b2;
+    .spinner {
+      border: 5px solid #e5e7eb;
+      border-top: 5px solid #4f46e5;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 10px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
   </style>
 </head>
 <body>
-  <header>
-    Monetag Interstitial Ads
-  </header>
+
+  <div class="loader">
+    <div class="spinner"></div>
+    <p>Memuat...</p>
+  </div>
 
   <div class="content">
-    <p>Loading..</p>
+    <p>Konten siap ditampilkan!</p>
   </div>
 
   <script>
-    // Telegram WebApp API
-    if (window.Telegram && Telegram.WebApp) {
-      Telegram.WebApp.ready();
-      Telegram.WebApp.expand();
-    }
+    window.onload = function() {
+      document.querySelector('.loader').style.display = 'none';
+      document.querySelector('.content').style.display = 'block';
 
-// In-App Interstitial
+      if (window.Telegram && Telegram.WebApp) {
+        Telegram.WebApp.ready();
+        Telegram.WebApp.expand();
+      }
 
-show_9870613({
-  type: 'inApp',
-  inAppSettings: {
-    frequency: 2,
-    capping: 0.1,
-    interval: 30,
-    timeout: 5,
-    everyPage: false
-  }
-});
-
+      show_9870613({
+        type: 'inApp',
+        inAppSettings: {
+          frequency: 2,
+          capping: 0.1,
+          interval: 30,
+          timeout: 5,
+          everyPage: false
+        }
+      });
+    };
   </script>
 </body>
 </html>
