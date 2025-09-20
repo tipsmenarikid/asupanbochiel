@@ -6,7 +6,7 @@
   <title>Iklan Interstitial Monetag</title>
 
   <!-- Script Interstitial Monetag -->
-  <script src="https://alwingulla.com/88/tag.min.js" data-zone="YOUR_ZONE_ID"></script>
+  <script src='//libtl.com/sdk.js' data-zone='9870613' data-sdk='show_9870613'></script>
 
   <style>
     body {
@@ -57,14 +57,19 @@
       Telegram.WebApp.expand();
     }
 
-    // Trigger manual iklan interstitial
-    function showInterstitial() {
-      if (typeof window.Monetag !== "undefined" && window.Monetag.interstitial) {
-        window.Monetag.interstitial.show();
-      } else {
-        alert("Iklan belum siap dimuat.");
-      }
-    }
+// In-App Interstitial
+
+show_9870613({
+  type: 'inApp',
+  inAppSettings: {
+    frequency: 2,
+    capping: 0.1,
+    interval: 30,
+    timeout: 5,
+    everyPage: false
+  }
+});
+
   </script>
 </body>
 </html>
